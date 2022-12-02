@@ -40,13 +40,5 @@ def aoc2():
 	for line in sys.stdin:
 		enemy = rps[line[0]]
 		strat = rps[line[2]]
-		pts = enemy + strat
-		if pts < 1:
-			pts = 3
-		if pts > 3:
-			pts = 1
-		pts += (strat + 1) * 3
-		score += pts
+		score += (enemy - 1 + strat) % 3 + 1 + (strat + 1) * 3
 	print(score)
-
-	pass
