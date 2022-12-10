@@ -5,21 +5,23 @@ if [[ $# -ne 1 ]]; then
 	exit
 fi
 
-if [[ ! -e $1 ]]; then
-	echo "Creating $1/"
-	mkdir $1
+day=`printf '%02d' $1`
+
+if [[ ! -e $day ]]; then
+	echo "Creating $day/"
+	mkdir $day
 else
-	echo "$1/ already exists"
+	echo "$day/ already exists"
 fi
 
-cd $1
+cd $day
 
-if [[ ! -e solution$1.py ]]; then
-	echo "Creating solution$1.py"
-	cp ../template.py ./solution$1.py
-	sed -i s/%s/$1/ ./solution$1.py
+if [[ ! -e solution$day.py ]]; then
+	echo "Creating solution$day.py"
+	cp ../template.py ./solution$day.py
+	sed -i s/%s/$day/ ./solution$day.py
 else
-	echo "solution$1.py already exists"
+	echo "solution$day.py already exists"
 fi
 
 echo "Done"

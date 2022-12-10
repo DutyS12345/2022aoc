@@ -5,5 +5,7 @@ if [[ $# -ne 2 ]]; then
 	exit
 fi
 
-cd $1
-time python -c "import solution$1; solution$1.aoc$2()" < input.txt
+day=`printf '%02d' $1`
+
+cd $day
+time python -c "import solution$day; solution$day.aoc$2()" < input.txt

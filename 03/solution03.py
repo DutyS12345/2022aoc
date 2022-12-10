@@ -37,6 +37,6 @@ def aoc2():
 				if c in common:
 					total += priority(c)
 					break
-		elf += aoc1
+		elf += 1
 	print(total)
 	
